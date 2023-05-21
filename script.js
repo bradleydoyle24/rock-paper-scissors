@@ -14,3 +14,19 @@ function getComputerChoice() {
 
 let computerChoice = getComputerChoice();
 console.log(computerChoice);
+
+function getPlayerChoice() {
+  let playerChoice = prompt("Will you play 'Rock', 'Paper', or 'Scissors'?" );
+  let choiceCheck = playerChoice.toLowerCase();
+  console.log(choiceCheck);
+  if (choiceCheck !== 'rock' && choiceCheck !== 'scissors' && choiceCheck !== 'paper') {
+    console.log("You must choose 'Rock', 'Paper', or 'Scissors'!");
+    getPlayerChoice();
+  } 
+  else {
+    return playerChoice;
+  }
+}
+
+let playerChoice = getPlayerChoice();
+console.log(playerChoice);
