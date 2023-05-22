@@ -1,3 +1,6 @@
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice() {
   let number = Math.floor(Math.random() * 3) + 1;
   if (number === 1) {
@@ -33,9 +36,6 @@ function game (playerSelection, computerSelection) {
   playerSelection = playerChoice;
   computerSelection = computerChoice;
 
-  let computerScore = 0;
-  let playerScore = 0;
-
   if (playerSelection === 'rock') {
     if (computerSelection === 'paper') {
       console.log("Rock loses to Paper, Computer Wins!");
@@ -55,7 +55,7 @@ function game (playerSelection, computerSelection) {
       console.log("Paper beats Rock, Player Wins!");
       playerScore += 1;
     }
-    if (computerSelection === 'scissors') {
+    else if (computerSelection === 'scissors') {
       console.log("Paper loses to Scissors, Computer Wins!")
       computerScore += 1;
     }
@@ -69,7 +69,7 @@ function game (playerSelection, computerSelection) {
       console.log("Scissors loses to Rock, Computer Wins!");
       computerScore += 1;
     }
-    if (computerSelection === 'paper') {
+    else if (computerSelection === 'paper') {
       console.log("Scissors beats Paper, Player Wins!")
       playerScore += 1;
     }
