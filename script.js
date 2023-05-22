@@ -32,7 +32,7 @@ function getPlayerChoice() {
 let playerChoice = getPlayerChoice();
 console.log("Player choice: " + playerChoice);
 
-function game (playerSelection, computerSelection) {
+function round(playerSelection, computerSelection) {
   playerSelection = playerChoice;
   computerSelection = computerChoice;
 
@@ -80,5 +80,7 @@ function game (playerSelection, computerSelection) {
   console.log("Player score is : " + playerScore, " and Computer Score is: " + computerScore);
 }
 
-game(playerChoice, computerChoice);
+round(playerChoice, computerChoice);
+
+
 
