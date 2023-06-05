@@ -25,6 +25,22 @@ body {
 .score {
   display: flex;
   flex-direction: column;
+  padding: 1vh;
+}
+
+.score-name {
+  display: flex;
+  justify-content: center;
+  padding: 1vh;
+}
+
+.points {
+  display: flex;
+  text-align: center;
+  font: 10vh Courier, FreeMono, monospace;
+  color:crimson;
+  background-color:lightcyan;
+  font-weight: bold;
 }
 
 .card-holder {
