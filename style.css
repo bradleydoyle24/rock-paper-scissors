@@ -16,6 +16,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: center;
+  border: 5px solid black;
+  border-radius: 12px;
+  padding: 1vh;
 }
 
 .scoreboard-counter {
@@ -46,4 +50,24 @@ body {
 .card-holder {
   display: flex;
   justify-content: space-around;
+  padding: 2vh;
+  margin-top: 5vh;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bold 25px small-caps Impact, fantasy;
+  border: solid 3px black;
+  border-radius: 5px;
+  padding: 1vh;
+  width: 100px;
+  height: 100px;
+
 }
