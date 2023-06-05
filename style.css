@@ -20,6 +20,7 @@ body {
   border: 5px solid black;
   border-radius: 12px;
   padding: 1vh;
+  background-color: #6CB9C3;
 }
 
 .scoreboard-counter {
@@ -29,6 +30,7 @@ body {
 .score {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1vh;
 }
 
@@ -45,6 +47,10 @@ body {
   color:crimson;
   background-color:lightcyan;
   font-weight: bold;
+  width: min-content;
+  padding: 5px;
+  border: solid 1.5px black;
+  border-radius: 10px;
 }
 
 .card-holder {
@@ -69,5 +75,16 @@ body {
   padding: 1vh;
   width: 100px;
   height: 100px;
+}
 
+.rock {
+  background-color: #9da5aa;
+}
+
+.paper {
+  background-color: honeydew;
+}
+
+.scissors {
+  background-color: #F5E457;
 }
