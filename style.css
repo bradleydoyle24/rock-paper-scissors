@@ -46,7 +46,8 @@
 }
 
 .card-holder {
-
+  display: flex;
+  justify-content: space-around;
 }
 
 .card {
@@ -54,11 +55,13 @@
 }
 
 .card-image {
-
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
 }
 
 .card-name {
-  
+
 }
 
 
