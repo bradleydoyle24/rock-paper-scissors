@@ -38,3 +38,5 @@ function getPlayerChoice() {
 }
 
 getPlayerChoice();
+
+//Compare choices
