@@ -1,8 +1,13 @@
+body {
+  background-color:coral;
+}
+
 .title {
   font-weight: bold;
   font-size: 6vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
+  font-variant: small-caps;
   margin: 5vh;
 }
 
@@ -58,6 +63,7 @@
   background: linear-gradient(lightgray, gray);
   border-radius: 50px;
   border: 2px solid black;
+  margin: 5vw;
 }
 
 .card {
