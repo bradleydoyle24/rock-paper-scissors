@@ -29,14 +29,15 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-const playerChoices = document.querySelectorAll('.card');
+const choices = document.querySelectorAll('.card');
 
 function getPlayerChoice() { 
-  playerChoices.forEach(playerChoice => {
-    playerChoice.addEventListener('click', () => {
-      console.log(`function player choice is: ${playerChoice.id}`);
-      return playerChoice;
+  choices.forEach(choice => {
+    choice.addEventListener('click', () => {
+      console.log(`function player choice is: ${choice.id}`);
+      return choice;
     });
   });
 }
 
+getPlayerChoice();
