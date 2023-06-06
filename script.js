@@ -25,9 +25,6 @@ function getComputerChoice() {
   // Function listens for click on ID
   // Returns name in a variable 'playerChoice'
 
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
 
 const choices = document.querySelectorAll('.card');
 
