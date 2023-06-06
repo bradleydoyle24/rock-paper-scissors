@@ -1,3 +1,10 @@
+.title {
+  font-weight: bold;
+  font-size: 6vw;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin: 5vh;
+}
 
 .scoreboard-container {
   width: 300px;
