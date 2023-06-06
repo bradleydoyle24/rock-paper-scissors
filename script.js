@@ -19,6 +19,7 @@ function getComputerChoice() {
   }
 }
 
+
 // Get player choice by listening to what got clicked
 // event listener to click on certain cards
   // Create variables for each ID in html.
@@ -37,7 +38,6 @@ function getPlayerChoice() {
   });
 }
 
-getPlayerChoice();
 
 //Compare choices
 function round(playerSelection, computerSelection) {
@@ -87,3 +87,4 @@ function round(playerSelection, computerSelection) {
 
   return playerScore, computerScore;
 }
+
