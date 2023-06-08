@@ -3,6 +3,7 @@ const choices = document.querySelectorAll('.card');
 
 let playerChoice;
 let computerChoice;
+let winner;
 
 let resultText = "Click an icon to play the game!";
 
@@ -14,9 +15,13 @@ choices.forEach(choice => {
   choice.addEventListener('click', () => {
     playerChoice = choice.id;
     computerChoice = getComputerChoice();
-    let winner = getWinner(computerChoice, playerChoice);
+
+    winner = getWinner(computerChoice, playerChoice);
+    changeScore(winner);
 
     resultText = getVictoryMessage(computerChoice, playerChoice, winner);
+
+    endGame();
 
     resultDiv.textContent = resultText;
     body.appendChild(resultDiv);
@@ -80,23 +85,42 @@ function getVictoryMessage (computerChoice, playerChoice, winner) {
 }
 
 
+const playerScoreDiv = document.querySelector(".points.player");
+const computerScoreDiv = document.querySelector(".points.computer");
 
-// Create variable for each points
-  // .points .player
-  // .points .computer
-  // Have each score start at 0
-// Determine who won game
-// Add 1 to their score
-
-const playerPoints = document.querySelector(".points.player");
-const computerPoints = document.querySelector(".points.computer");
-
-let playerScore = 0;
-let computerScore = 0;
+let playerPoints = 0;
+let computerPoints = 0;
+playerScoreDiv.textContent = `${playerPoints}`;
+computerScoreDiv.textContent = `${computerPoints}`;
 
 function changeScore (winner) {
-  if 
+  if (winner === 'player') {
+    playerPoints++;
+    playerScoreDiv.textContent = `${playerPoints}`;
+  } else if (winner === 'computer') {
+    computerPoints++;
+    computerScoreDiv.textContent = `${computerPoints}`;
+  }
 }
 
-playerPoints.textContent = `${playerScore}`;
-computerPoints.textContent = `${computerScore}`;
+// Function to end games.
+// look at each score.
+// When one score reaches 5, end game, and reset scores.
+
+function endGame() {
+  if (playerPoints === 5 || computerPoints === 5) {
+    if (playerPoints > computerPoints) {
+      resultText = 'You win the game!';
+      playerPoints = 0;
+      computerPoints = 0;
+      playerScoreDiv.textContent = `${playerPoints}`;
+      computerScoreDiv.textContent = `${computerPoints}`;
+    } else {
+      resultText = 'Computer wins the game!';
+      playerPoints = 0;
+      computerPoints = 0;
+      playerScoreDiv.textContent = `${playerPoints}`;
+      computerScoreDiv.textContent = `${computerPoints}`;
+    }
+  }
+}
