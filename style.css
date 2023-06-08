@@ -92,6 +92,9 @@ body {
   display: flex;
   justify-content: center;
   font-size: 30px;
+  font-weight: bold;
   margin: 2hv;
+  font-family: 'Lucida Grande', 'Gargi_1.7', sans-serif;
+  font-variant: small-caps;
 }
 

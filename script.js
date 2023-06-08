@@ -11,10 +11,10 @@ resultDiv.textContent = resultText;
 body.appendChild(resultDiv);
 
 choices.forEach(choice => {
-  choice.addEventListener('click', ()=> {
+  choice.addEventListener('click', () => {
     playerChoice = choice.id;
     computerChoice = getComputerChoice();
-    let winner = playSingleRound(computerChoice, playerChoice);
+    let winner = getWinner(computerChoice, playerChoice);
 
     resultText = getVictoryMessage(computerChoice, playerChoice, winner);
 
@@ -26,40 +26,32 @@ choices.forEach(choice => {
 function getComputerChoice() {
   let number = Math.floor(Math.random() * 3) + 1;
   if (number === 1) {
-    return "rock";
+    return "Rock";
   }
   else if (number === 2) {
-    return "paper";
+    return "Paper";
   }
   else {
-    return "scissors";
+    return "Scissors";
   }
 }
 
-// Turn playSingleRound into a function that gets winner.
-// Make another function that assigns text to resultDiv.
-
-// Function that gets winner
-  // Takes playerChoice and computerChoice
-  // compares like in current function
-  // Instead of console.log, return a number?
-
-function playSingleRound(computerChoice, playerChoice) {
+function getWinner(computerChoice, playerChoice) {
   if (computerChoice !== playerChoice) {
-    if (playerChoice === 'rock') {
-      if (computerChoice === 'paper') {
+    if (playerChoice === 'Rock') {
+      if (computerChoice === 'Paper') {
         return 'computer';
       } else {
         return 'player';
       }
-    } else if (playerChoice === 'paper') {
-      if (computerChoice === 'scissors') {
+    } else if (playerChoice === 'Paper') {
+      if (computerChoice === 'Scissors') {
         return 'computer';
       } else {
         return 'player';
       }
-    } else if (playerChoice === 'scissors') {
-        if (computerChoice === 'rock') {
+    } else if (playerChoice === 'Scissors') {
+        if (computerChoice === 'Rock') {
           return 'computer';
         } else {
           return 'player';
@@ -71,8 +63,6 @@ function playSingleRound(computerChoice, playerChoice) {
   }
 }
 
-// Print function takes the number as an argument
-  // Each printed message is assigned to a number??
 function getVictoryMessage (computerChoice, playerChoice, winner) {
   let victoryMessage;
   if (winner !== 'tie') {
@@ -89,3 +79,24 @@ function getVictoryMessage (computerChoice, playerChoice, winner) {
   }
 }
 
+
+
+// Create variable for each points
+  // .points .player
+  // .points .computer
+  // Have each score start at 0
+// Determine who won game
+// Add 1 to their score
+
+const playerPoints = document.querySelector(".points.player");
+const computerPoints = document.querySelector(".points.computer");
+
+let playerScore = 0;
+let computerScore = 0;
+
+function changeScore (winner) {
+  if 
+}
+
+playerPoints.textContent = `${playerScore}`;
+computerPoints.textContent = `${computerScore}`;
