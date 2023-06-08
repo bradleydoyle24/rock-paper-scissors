@@ -1,13 +1,25 @@
+const body = document.querySelector('body');
 const choices = document.querySelectorAll('.card');
 
 let playerChoice;
 let computerChoice;
 
+let resultText = "Click an icon to play the game!";
+
+const resultDiv = document.querySelector(".result");
+resultDiv.textContent = resultText;
+body.appendChild(resultDiv);
+
 choices.forEach(choice => {
   choice.addEventListener('click', ()=> {
     playerChoice = choice.id;
     computerChoice = getComputerChoice();
-    playSingleRound(computerChoice, playerChoice);
+    let winner = playSingleRound(computerChoice, playerChoice);
+
+    resultText = getVictoryMessage(computerChoice, playerChoice, winner);
+
+    resultDiv.textContent = resultText;
+    body.appendChild(resultDiv);
   });
 });
 
@@ -24,32 +36,56 @@ function getComputerChoice() {
   }
 }
 
+// Turn playSingleRound into a function that gets winner.
+// Make another function that assigns text to resultDiv.
+
+// Function that gets winner
+  // Takes playerChoice and computerChoice
+  // compares like in current function
+  // Instead of console.log, return a number?
+
 function playSingleRound(computerChoice, playerChoice) {
   if (computerChoice !== playerChoice) {
-
     if (playerChoice === 'rock') {
       if (computerChoice === 'paper') {
-        console.log(`You choose ${playerChoice}, computer chooses ${computerChoice}, computer wins!`);
+        return 'computer';
       } else {
-        console.log(`You choose ${playerChoice}, computer chooses ${computerChoice}, player wins!`);
+        return 'player';
       }
-
     } else if (playerChoice === 'paper') {
       if (computerChoice === 'scissors') {
-        console.log(`You choose ${playerChoice}, computer chooses ${computerChoice}, computer wins!`);
+        return 'computer';
       } else {
-        console.log(`You choose ${playerChoice}, computer chooses ${computerChoice}, player wins!`);
+        return 'player';
       }
-
     } else if (playerChoice === 'scissors') {
         if (computerChoice === 'rock') {
-        console.log(`You choose ${playerChoice}, computer chooses ${computerChoice}, computer wins!`);
-      } else {
-        console.log(`You choose ${playerChoice}, computer chooses ${computerChoice}, player wins!`);
-      }
+          return 'computer';
+        } else {
+          return 'player';
+        }
     }
   }
   else {
-    console.log(`${playerChoice} vs ${computerChoice}, it\'s a tie!`);
+    return 'tie';
   }
 }
+
+// Print function takes the number as an argument
+  // Each printed message is assigned to a number??
+function getVictoryMessage (computerChoice, playerChoice, winner) {
+  let victoryMessage;
+  if (winner !== 'tie') {
+    if (winner === 'computer') {
+      victoryMessage = `Computer played ${computerChoice}, you played ${playerChoice}, computer wins!`;
+      return victoryMessage;
+    } else {
+      victoryMessage = `Computer played ${computerChoice}, you played ${playerChoice}, you win!`;
+      return victoryMessage;
+    }
+  } else {
+    victoryMessage = `${playerChoice} vs ${computerChoice}, it\'s a tie!`;
+    return victoryMessage;
+  }
+}
+
