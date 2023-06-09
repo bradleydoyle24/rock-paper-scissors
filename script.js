@@ -1,32 +1,36 @@
 const body = document.querySelector('body');
 const choices = document.querySelectorAll('.card');
 
-let playerChoice;
 let computerChoice;
 let winner;
 
-let resultText = "Click an icon to play the game!";
+let resultMessage = "Click an icon to play the game!";
+
+const playerScoreDiv = document.querySelector(".points.player");
+const computerScoreDiv = document.querySelector(".points.computer");
+let playerPoints = 0;
+let computerPoints = 0;
+playerScoreDiv.textContent = `${playerPoints}`;
+computerScoreDiv.textContent = `${computerPoints}`;
 
 const resultDiv = document.querySelector(".result");
-resultDiv.textContent = resultText;
+resultDiv.textContent = resultMessage;
 body.appendChild(resultDiv);
 
-choices.forEach(choice => {
-  choice.addEventListener('click', () => {
-    playerChoice = choice.id;
-    computerChoice = getComputerChoice();
 
-    winner = getWinner(computerChoice, playerChoice);
-    changeScore(winner);
+choices.forEach(choice => choice.addEventListener('click', () => {
+  playGame(choice.id);
+}));
 
-    resultText = getVictoryMessage(computerChoice, playerChoice, winner);
-
-    endGame();
-
-    resultDiv.textContent = resultText;
-    body.appendChild(resultDiv);
-  });
-});
+function playGame(playerChoice) {
+  computerChoice = getComputerChoice();
+  winner = getWinner(computerChoice, playerChoice);
+  changeScore(winner);
+  resultMessage = getResultMessage(computerChoice, playerChoice, winner);
+  endGame()
+  resultDiv.textContent = resultMessage;
+  body.appendChild(resultDiv);
+}
 
 function getComputerChoice() {
   let number = Math.floor(Math.random() * 3) + 1;
@@ -68,7 +72,7 @@ function getWinner(computerChoice, playerChoice) {
   }
 }
 
-function getVictoryMessage (computerChoice, playerChoice, winner) {
+function getResultMessage (computerChoice, playerChoice, winner) {
   let victoryMessage;
   if (winner !== 'tie') {
     if (winner === 'computer') {
@@ -84,15 +88,6 @@ function getVictoryMessage (computerChoice, playerChoice, winner) {
   }
 }
 
-
-const playerScoreDiv = document.querySelector(".points.player");
-const computerScoreDiv = document.querySelector(".points.computer");
-
-let playerPoints = 0;
-let computerPoints = 0;
-playerScoreDiv.textContent = `${playerPoints}`;
-computerScoreDiv.textContent = `${computerPoints}`;
-
 function changeScore (winner) {
   if (winner === 'player') {
     playerPoints++;
@@ -103,24 +98,21 @@ function changeScore (winner) {
   }
 }
 
-// Function to end games.
-// look at each score.
-// When one score reaches 5, end game, and reset scores.
-
 function endGame() {
   if (playerPoints === 5 || computerPoints === 5) {
     if (playerPoints > computerPoints) {
-      resultText = 'You win the game!';
-      playerPoints = 0;
-      computerPoints = 0;
-      playerScoreDiv.textContent = `${playerPoints}`;
-      computerScoreDiv.textContent = `${computerPoints}`;
+      resultMessage = 'You win the game!';
+      resetPoints();
     } else {
-      resultText = 'Computer wins the game!';
-      playerPoints = 0;
-      computerPoints = 0;
-      playerScoreDiv.textContent = `${playerPoints}`;
-      computerScoreDiv.textContent = `${computerPoints}`;
+      resultMessage = 'Computer wins the game!';
+      resetPoints();
     }
   }
+}
+
+function resetPoints () {
+  playerPoints = 0;
+  computerPoints = 0;
+  playerScoreDiv.textContent = `${playerPoints}`;
+  computerScoreDiv.textContent = `${computerPoints}`;
 }
